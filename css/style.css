@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+body{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 13% 74% 13%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas:
+  "blanck nav blank"
+  "menubar board status";
+}
+board{
+  grid-area: board;
+}
+nav{
+  grid-area: nav;
+  text-align: center;
+  font-size:2.2rem;
+}
+menu{
+  padding: 0;
+  grid-area: menubar;
+  align-items: center;
+}
+.menu-bar-buttons{
+  margin: .5rem 1.3rem .5rem 1.3rem;
+  width: 4rem;
+  height: 2.5rem;
+  align-items: center;
+}
