@@ -11,6 +11,7 @@ html {
   box-sizing: inherit;
 }
 body{
+  text-align: center;
   display: grid;
   min-height: 100vh;
   grid-template-columns: 13% 74% 13%;
@@ -39,16 +40,67 @@ menu{
   align-items: center;
 }
 section {
-  grid-area: board ;
-  align-items: center;
-}
-img {
-  width: 45rem;
+  width: 47.5rem;
   height: 35rem;
-  border: .5rem solid black;
-  border-radius: .7rem;
+  grid-area: board ;
   display: grid;
-  
+  grid-template-columns:2% 6.9% 6.9% 6.9% 6.9% 6.9% 6.9% 11.5% 6.9% 6.9% 6.9% 6.9% 6.9% 6.9% 3.7%; 
+  grid-template-rows: 45% 10% 45%;
+  grid-template-areas: 
+  "a c12     c11     c10     c9      c8      c7      b  c6   c5   c4   c3   c2   c1   c"
+  "a m-d-btn m-d-btn m-d-btn m-d-btn m-d-btn m-d-btn b  dice dice dice dice dice dice c"
+  "a c13     c14     c15     c16     c17     c18     b  c19  c20  c21  22   c23  c24  c";
+}
+#board {
+  width: 47.5rem;
+  height: 35rem;
+}
+c1{
+  grid-area: c1;
+  padding-left: .7rem;
+}
+c6{
+  grid-area: c6;
+}
+c8{
+  grid-area: c8;
+  padding-left: .6rem;
+}
+c12{
+  grid-area: c12;
+  padding-right: .5rem;
+}
+c13{
+  grid-area: c13;
+  padding-left: .1rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c17{
+  grid-area: c17;
+  padding-left: .4rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c19{
+  grid-area: c19;
+  padding-left: .4rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c24{
+  grid-area: c24;
+  padding-left: .7rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#white{
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50rem;
+  padding: 0px;
+  margin: 0px;
+
 }
 status {
   grid-area: status;
