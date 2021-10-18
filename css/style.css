@@ -113,6 +113,18 @@ roll-move-btn{
   height: 2rem;
   
 }
+dice{
+  grid-area: dice;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dice-style{
+width: 2.7rem;
+height: 2.7rem;
+border-radius: .7rem;
+margin: .3rem;
+}
 status {
   grid-area: status;
 }
