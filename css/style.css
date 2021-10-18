@@ -102,6 +102,17 @@ c24{
   margin: 0px;
 
 }
+roll-move-btn{
+  grid-area: m-d-btn ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#roll-btn{
+  width: 5rem;
+  height: 2rem;
+  
+}
 status {
   grid-area: status;
 }
