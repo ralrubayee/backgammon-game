@@ -38,3 +38,18 @@ menu{
   height: 2.5rem;
   align-items: center;
 }
+section {
+  grid-area: board ;
+  align-items: center;
+}
+img {
+  width: 45rem;
+  height: 35rem;
+  border: .5rem solid black;
+  border-radius: .7rem;
+  display: grid;
+  
+}
+status {
+  grid-area: status;
+}
