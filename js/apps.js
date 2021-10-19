@@ -8,6 +8,7 @@ let WhiteChipsPlace =[]
 let diceArray = []
 let dice1 =0
 let dice2 =0
+let currenetChecker 
 /*------------------------ Cached Element References ------------------------*/
 
 //buttons
@@ -128,29 +129,32 @@ function init(){
 }
 
 function play(){
-  white.forEach((w,idx) =>{
-    w.addEventListener("click",move=>{
-     w.draggable = true
-      rollBtn.hidden = true
-      addToNewColumn(w,idx)
-      next.hidden=false
+ white.forEach((w, idx)=>{
+   w.addEventListener("click",move=>{
+      w.remove()
+      currenetChecker = w
+      highlightcolumn(idx)
     })
   })
 }
-function addToNewColumn (w,idx){
-columns.forEach((c,i)=>{
-  if (c===WhiteChipsPlace[idx]){
-      columns[i+dice1].classList.add("high-light")
-      columns[i+dice1].addEventListener("click",add =>{
-        columns[i+dice1].appendChild(w)
-        WhiteChipsPlace[idx]=columns[i]
-      })
-    columns[i+dice2].classList.add("high-light")
-    columns[i+dice2].addEventListener("click",add =>{
-      columns[i+dice2].appendChild(w)
-    })
-  }
-})
+function highlightcolumn (idx){
+  let diceArray =[dice1,dice2]
+for(i=0; i < columns.length ; i++){
+  if (columns[i]=== WhiteChipsPlace[idx]){
+    diceArray.forEach(dice =>{
+        columns[i+dice].classList.add("high-light")
+        addToNewColumn(columns[i+dice])
+        
+        })
+        
+   }
+ }
+}
+function addToNewColumn(newC){
+  newC.addEventListener("click",add=>{
+    newC.appendChild(currenetChecker)
+  return
+  })
 }
 
 function rollTheDice(){
@@ -191,5 +195,7 @@ if (dice1 === dice2){
   else if(dice2=== 5){d5.hidden = false}
   else if(dice2=== 6){d6.hidden = false}
 }
+next.hidden=false
+rollBtn.hidden = true
 play()
 }
