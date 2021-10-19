@@ -44,12 +44,14 @@ section {
   height: 35rem;
   grid-area: board ;
   display: grid;
-  grid-template-columns:2% 6.9% 6.9% 6.9% 6.9% 6.9% 6.9% 11.5% 6.9% 6.9% 6.9% 6.9% 6.9% 6.9% 3.7%; 
-  grid-template-rows: 45% 10% 45%;
-  grid-template-areas: 
+  grid-template-columns:5% 6.75% 6.8% 6.8% 6.8% 6.8% 6.8% 8.4% 6.8% 6.8% 6.8% 6.8% 6.8% 6.8% 5%; 
+  grid-template-rows: 5% 40% 10% 40% 5%;
+  grid-template-areas:
+  "d d        d      d       d       d       d       d  d    d    d     d    d    d   d" 
   "a c12     c11     c10     c9      c8      c7      b  c6   c5   c4   c3   c2   c1   c"
   "a m-d-btn m-d-btn m-d-btn m-d-btn m-d-btn m-d-btn b  dice dice dice dice dice dice c"
-  "a c13     c14     c15     c16     c17     c18     b  c19  c20  c21  22   c23  c24  c";
+  "a c13     c14     c15     c16     c17     c18     b  c19  c20  c21  22   c23  c24  c"
+  "h  h       h       h       h       h       h      h   h    h    h    h   h     h   h";
 }
 #board {
   width: 47.5rem;
@@ -57,118 +59,148 @@ section {
 }
 c1{
   grid-area: c1;
-  padding-left: .7rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c2{
   grid-area: c2;
-  padding-left: .6rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c3{
   grid-area: c3;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c4{
   grid-area: c4;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c5{
   grid-area: c5;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c6{
   grid-area: c6;
-  padding-left: .1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c7{
   grid-area: c7;
-  padding-left: .8rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c8{
   grid-area: c8;
-  padding-left: .6rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c9{
   grid-area: c9;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c10{
   grid-area: c10;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c11{
   grid-area: c11;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c12{
   grid-area: c12;
-  padding-right: .5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 c13{
   grid-area: c13;
-  padding-left: .1rem;
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 c14{
   grid-area: c14;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c15{
   grid-area: c15;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c16{
   grid-area: c16;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c17{
   grid-area: c17;
-  padding-left: .4rem;
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 c18{
   grid-area: c18;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 c19{
   grid-area: c19;
-  padding-left: .4rem;
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 c20{
   grid-area: c20;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c21{
   grid-area: c21;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c22{
   grid-area: c22;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c23{
   grid-area: c23;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 c24{
   grid-area: c24;
-  padding-left: .7rem;
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 .chips{
   width: 2.75rem;
