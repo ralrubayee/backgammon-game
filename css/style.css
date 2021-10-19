@@ -58,17 +58,68 @@ section {
 c1{
   grid-area: c1;
   padding-left: .7rem;
+  display: flex;
+  flex-direction: column;
+}
+c2{
+  grid-area: c2;
+  padding-left: .6rem;
+  display: flex;
+  flex-direction: column;
+}
+c3{
+  grid-area: c3;
+  display: flex;
+  flex-direction: column;
+}
+c4{
+  grid-area: c4;
+  display: flex;
+  flex-direction: column;
+}
+c5{
+  grid-area: c5;
+  display: flex;
+  flex-direction: column;
 }
 c6{
   grid-area: c6;
+  padding-left: .1rem;
+  display: flex;
+  flex-direction: column;
+}
+c7{
+  grid-area: c7;
+  padding-left: .8rem;
+  display: flex;
+  flex-direction: column;
 }
 c8{
   grid-area: c8;
   padding-left: .6rem;
+  display: flex;
+  flex-direction: column;
+}
+c9{
+  grid-area: c9;
+  display: flex;
+  flex-direction: column;
+}
+c10{
+  grid-area: c10;
+  display: flex;
+  flex-direction: column;
+}
+c11{
+  grid-area: c11;
+  display: flex;
+  flex-direction: column;
 }
 c12{
   grid-area: c12;
   padding-right: .5rem;
+  display: flex;
+  flex-direction: column;
 }
 c13{
   grid-area: c13;
@@ -76,17 +127,42 @@ c13{
   display: flex;
   flex-direction: column-reverse;
 }
+c14{
+  grid-area: c14;
+}
+c15{
+  grid-area: c15;
+}
+c16{
+  grid-area: c16;
+}
 c17{
   grid-area: c17;
   padding-left: .4rem;
   display: flex;
   flex-direction: column-reverse;
 }
+c18{
+  grid-area: c18;
+}
+
 c19{
   grid-area: c19;
   padding-left: .4rem;
   display: flex;
   flex-direction: column-reverse;
+}
+c20{
+  grid-area: c20;
+}
+c21{
+  grid-area: c21;
+}
+c22{
+  grid-area: c22;
+}
+c23{
+  grid-area: c23;
 }
 c24{
   grid-area: c24;
@@ -94,7 +170,7 @@ c24{
   display: flex;
   flex-direction: column-reverse;
 }
-#white{
+.chips{
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50rem;
