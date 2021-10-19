@@ -6,7 +6,13 @@ const diceSound = new Audio('./audio/roll-dice.mp3');
 let movingchip 
 let WhiteChipsPlace =[]
 let diceArray = []
+let dice1 =0
+let dice2 =0
 /*------------------------ Cached Element References ------------------------*/
+
+//buttons
+let rollBtn = document.querySelector("#roll-btn")
+let next =document.querySelector("#next")
 
 //cash all the columns
 let c1 = document.querySelector("c1")
@@ -75,7 +81,6 @@ let white = [w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15]
 let brown = [b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15]
 
 // cash dice elements
-let rollBtn = document.querySelector("#roll-btn")
 let d1 = document.querySelector("#d1")
 let d2 = document.querySelector("#d2")
 let d3 = document.querySelector("#d3")
@@ -122,17 +127,30 @@ function init(){
   WhiteChipsPlace = [c1,c1,c12,c12,c12,c12,c12,c17,c17,c17,c19,c19,c19,c19,c19]
 }
 
-function play(d1,d2){
-  white.forEach(w =>{
+function play(){
+  white.forEach((w,idx) =>{
     w.addEventListener("click",move=>{
-      w.remove()
-      
+     w.draggable = true
+      rollBtn.hidden = true
+      addToNewColumn(w,idx)
+      next.hidden=false
     })
   })
 }
-
-function highlightcolumns(){
-
+function addToNewColumn (w,idx){
+columns.forEach((c,i)=>{
+  if (c===WhiteChipsPlace[idx]){
+      columns[i+dice1].classList.add("high-light")
+      columns[i+dice1].addEventListener("click",add =>{
+        columns[i+dice1].appendChild(w)
+        WhiteChipsPlace[idx]=columns[i]
+      })
+    columns[i+dice2].classList.add("high-light")
+    columns[i+dice2].addEventListener("click",add =>{
+      columns[i+dice2].appendChild(w)
+    })
+  }
+})
 }
 
 function rollTheDice(){
@@ -148,8 +166,8 @@ function rollTheDice(){
   d6.hidden = true
 
   //choosing two random numbers bitween 1-6
-  let dice1 =  Math.floor(Math.random() * 6 + 1)
-  let dice2 = Math.floor(Math.random() * 6 + 1);
+   dice1 =  Math.floor(Math.random() * 6 + 1)
+   dice2 = Math.floor(Math.random() * 6 + 1);
 
 // show the dice on the board based on the random numbers
 if (dice1 === dice2){
@@ -173,5 +191,5 @@ if (dice1 === dice2){
   else if(dice2=== 5){d5.hidden = false}
   else if(dice2=== 6){d6.hidden = false}
 }
-play(dice1,dice2)
+play()
 }

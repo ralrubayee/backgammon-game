@@ -187,7 +187,6 @@ roll-move-btn{
 #roll-btn{
   width: 5rem;
   height: 2rem;
-  
 }
 dice{
   grid-area: dice;
@@ -203,4 +202,13 @@ margin: .3rem;
 }
 status {
   grid-area: status;
+}
+.high-light{
+  background-color: rgb(29, 54, 238);
+  opacity: 20%;
+ 
+}
+#next{
+  width: 5rem;
+  height: 2rem;
 }
