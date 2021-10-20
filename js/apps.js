@@ -3,13 +3,12 @@
 const diceSound = new Audio('./audio/roll-dice.mp3');
 
 /*---------------------------- Variables (state) ----------------------------*/
-let movingchip 
 let WhiteChipsPlace =[]
 let brownChipsPlace = []
-let diceArray = []
 let dice1 =0
 let dice2 =0
 let currenetChecker 
+let turn = 0
 /*------------------------ Cached Element References ------------------------*/
 
 //buttons
@@ -151,20 +150,68 @@ function init(){
 
   WhiteChipsPlace = [c1,c1,c12,c12,c12,c12,c12,c17,c17,c17,c19,c19,c19,c19,c19]
   brownChipsPlace = [c24,c24,c13,c13,c13,c13,c13,c8,c8,c8,c6,c6,c6,c6,c6]
+
+  turn =1
 }
 
 function play(){
+
+  if(turn === 2 ){
+    brown.forEach((b,idx) =>{ 
+      b.addEventListener("click",move=>{
+        addBackbrown(b,idx)
+      })
+      b.removeEventListener("click",move=>{})
+    })
+    }
+
+  if(turn === 1 ){
 white.forEach((w,idx) =>{ 
   w.addEventListener("click",move=>{
-    w.remove()
-    addBack(w,idx)
+    addBackwhite(w,idx)
   })
+  w.removeEventListener("click",move=>{})
 })
 }
-function addBack(w,idx){
+}
 
+function addBackbrown(b,idx){
+  if(turn === 2){
+    for(i=0;i<columns.length; i++){
+     if(columns[i]=== brownChipsPlace[idx]){
+      //playing the first dice
+      if(dice1>0 ){
+        let c = columns[i-dice1]
+      c.classList.add("high-light")
+      c.addEventListener("click",add=>{
+  
+        c.appendChild(b)
+        c.classList.remove("high-light")
+        brownChipsPlace[idx] = c
+      })
+      dice1 = 0
+      return
+      } else if(dice1===0) {
+        let c = columns[i-dice2]
+      c.classList.add("high-light")
+      c.addEventListener("click",add=>{
+        c.appendChild(b)
+        c.classList.remove("high-light")
+        brownChipsPlace[idx] = c
+        next.hidden=false
+        next.addEventListener("click",nextPlayer)
+      })
+      dice2 = 0
+      return
+      }
+     }
+    }
+  }
+  }
+
+function addBackwhite(w,idx){
+  if(turn === 1){
   for(i=0;i<columns.length; i++){
-    for(i=0; 1<brownChipsPlace.length; i++){
    if(columns[i]=== WhiteChipsPlace[idx]){
     //playing the first dice
     if(dice1>0 ){
@@ -178,7 +225,7 @@ function addBack(w,idx){
     })
     dice1 = 0
     return
-    } else {
+    } else if(dice1===0) {
       let c = columns[i+dice2]
     c.classList.add("high-light")
     c.addEventListener("click",add=>{
@@ -193,8 +240,19 @@ function addBack(w,idx){
     }
    }
   }
-  }
 }
+}
+
+function nextPlayer(){
+if (turn === 1){
+  turn =2
+} else if (turn === 2){
+  turn =1
+}
+next.hidden = true
+rollBtn.hidden = false
+}
+
 function rollTheDice(){
   //play sound when click roll
   diceSound.play()
