@@ -5,6 +5,7 @@ const diceSound = new Audio('./audio/roll-dice.mp3');
 /*---------------------------- Variables (state) ----------------------------*/
 let movingchip 
 let WhiteChipsPlace =[]
+let brownChipsPlace = []
 let diceArray = []
 let dice1 =0
 let dice2 =0
@@ -44,6 +45,7 @@ let c24 = document.querySelector("c24")
 let columns = [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24]
 
 //cash all the checkers
+let chips = document.querySelector(".chips")
 let w1 =document.querySelector("#w1")
 let w2 =document.querySelector("#w2")
 let w3 =document.querySelector("#w3")
@@ -88,6 +90,12 @@ let d3 = document.querySelector("#d3")
 let d4 = document.querySelector("#d4")
 let d5 = document.querySelector("#d5")
 let d6 = document.querySelector("#d6")
+let di1 = document.querySelector("#d-1")
+let di2 = document.querySelector("#d-2")
+let di3 = document.querySelector("#d-3")
+let di4 = document.querySelector("#d-4")
+let di5 = document.querySelector("#d-5")
+let di6 = document.querySelector("#d-6")
 
 
 
@@ -125,38 +133,68 @@ function init(){
   c19.appendChild(w14)
   c19.appendChild(w15)
 
+  c24.appendChild(b1)
+  c24.appendChild(b2)
+  c13.appendChild(b3)
+  c13.appendChild(b4)
+  c13.appendChild(b5)
+  c13.appendChild(b6)
+  c13.appendChild(b7)
+  c8.appendChild(b8)
+  c8.appendChild(b9)
+  c8.appendChild(b10)
+  c6.appendChild(b11)
+  c6.appendChild(b12)
+  c6.appendChild(b13)
+  c6.appendChild(b14)
+  c6.appendChild(b15)
+
   WhiteChipsPlace = [c1,c1,c12,c12,c12,c12,c12,c17,c17,c17,c19,c19,c19,c19,c19]
+  brownChipsPlace = [c24,c24,c13,c13,c13,c13,c13,c8,c8,c8,c6,c6,c6,c6,c6]
 }
 
 function play(){
- white.forEach((w, idx)=>{
-   w.addEventListener("click",move=>{
-      w.remove()
-      currenetChecker = w
-      highlightcolumn(idx)
-    })
+white.forEach((w,idx) =>{ 
+  w.addEventListener("click",move=>{
+    w.remove()
+    addBack(w,idx)
   })
+})
 }
-function highlightcolumn (idx){
-  let diceArray =[dice1,dice2]
-for(i=0; i < columns.length ; i++){
-  if (columns[i]=== WhiteChipsPlace[idx]){
-    diceArray.forEach(dice =>{
-        columns[i+dice].classList.add("high-light")
-        addToNewColumn(columns[i+dice])
-        
-        })
-        
-   }
- }
-}
-function addToNewColumn(newC){
-  newC.addEventListener("click",add=>{
-    newC.appendChild(currenetChecker)
-  return
-  })
-}
+function addBack(w,idx){
 
+  for(i=0;i<columns.length; i++){
+    for(i=0; 1<brownChipsPlace.length; i++){
+   if(columns[i]=== WhiteChipsPlace[idx]){
+    //playing the first dice
+    if(dice1>0 ){
+      let c = columns[i+dice1]
+    c.classList.add("high-light")
+    c.addEventListener("click",add=>{
+
+      c.appendChild(w)
+      c.classList.remove("high-light")
+      WhiteChipsPlace[idx] = c
+    })
+    dice1 = 0
+    return
+    } else {
+      let c = columns[i+dice2]
+    c.classList.add("high-light")
+    c.addEventListener("click",add=>{
+      c.appendChild(w)
+      c.classList.remove("high-light")
+      WhiteChipsPlace[idx] = c
+      next.hidden=false
+      next.addEventListener("click",nextPlayer)
+    })
+    dice2 = 0
+    return
+    }
+   }
+  }
+  }
+}
 function rollTheDice(){
   //play sound when click roll
   diceSound.play()
@@ -168,34 +206,33 @@ function rollTheDice(){
   d4.hidden = true
   d5.hidden = true
   d6.hidden = true
+  di1.hidden = true
+  di2.hidden = true
+  di3.hidden = true
+  di4.hidden = true
+  di5.hidden = true
+  di6.hidden = true
+
 
   //choosing two random numbers bitween 1-6
    dice1 =  Math.floor(Math.random() * 6 + 1)
    dice2 = Math.floor(Math.random() * 6 + 1);
 
 // show the dice on the board based on the random numbers
-if (dice1 === dice2){
   if(dice1=== 1){d1.hidden = false}
   else if(dice1=== 2){d2.hidden = false}
   else if(dice1=== 3){d3.hidden = false}
   else if(dice1=== 4){d4.hidden = false}
   else if(dice1=== 5){d5.hidden = false}
   else if(dice1=== 6){d6.hidden = false}
-  } else {
-  if(dice1=== 1){d1.hidden = false}
-  else if(dice1=== 2){d2.hidden = false}
-  else if(dice1=== 3){d3.hidden = false}
-  else if(dice1=== 4){d4.hidden = false}
-  else if(dice1=== 5){d5.hidden = false}
-  else if(dice1=== 6){d6.hidden = false}
-  if(dice2=== 1){d1.hidden = false}
-  else if(dice2=== 2){d2.hidden = false}
-  else if(dice2=== 3){d3.hidden = false}
-  else if(dice2=== 4){d4.hidden = false}
-  else if(dice2=== 5){d5.hidden = false}
-  else if(dice2=== 6){d6.hidden = false}
-}
-next.hidden=false
-rollBtn.hidden = true
+  if(dice2=== 1){di1.hidden = false}
+  else if(dice2=== 2){di2.hidden = false}
+  else if(dice2=== 3){di3.hidden = false}
+  else if(dice2=== 4){di4.hidden = false}
+  else if(dice2=== 5){di5.hidden = false}
+  else if(dice2=== 6){di6.hidden = false}
+
+ 
+ rollBtn.hidden = true
 play()
 }
