@@ -182,17 +182,21 @@ function addBackbrown(b,idx){
       //playing the first dice
       if(dice1>0 ){
         let c = columns[i-dice1]
+        WhiteChipsPlace.forEach(w=>{if(w!==c){
       c.classList.add("high-light")
       c.addEventListener("click",add=>{
-  
+        dice1 = 0
         c.appendChild(b)
         c.classList.remove("high-light")
         brownChipsPlace[idx] = c
       })
-      dice1 = 0
+      
       return
+     }
+    })
       } else if(dice1===0) {
         let c = columns[i-dice2]
+        WhiteChipsPlace.forEach(w=>{if(w!==c){
       c.classList.add("high-light")
       c.addEventListener("click",add=>{
         c.appendChild(b)
@@ -200,10 +204,14 @@ function addBackbrown(b,idx){
         brownChipsPlace[idx] = c
         next.hidden=false
         next.addEventListener("click",nextPlayer)
+        dice2 = 0
       })
-      dice2 = 0
+     
       return
+    }
+   })
       }
+      
      }
     }
   }
@@ -218,24 +226,25 @@ function addBackwhite(w,idx){
       let c = columns[i+dice1]
     c.classList.add("high-light")
     c.addEventListener("click",add=>{
-
+      dice1 = 0
       c.appendChild(w)
       c.classList.remove("high-light")
       WhiteChipsPlace[idx] = c
     })
-    dice1 = 0
+   
     return
     } else if(dice1===0) {
       let c = columns[i+dice2]
     c.classList.add("high-light")
     c.addEventListener("click",add=>{
+      dice2 = 0
       c.appendChild(w)
       c.classList.remove("high-light")
       WhiteChipsPlace[idx] = c
       next.hidden=false
       next.addEventListener("click",nextPlayer)
     })
-    dice2 = 0
+   
     return
     }
    }
